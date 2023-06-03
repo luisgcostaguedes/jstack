@@ -11,4 +11,10 @@ module.exports = [
     method: "GET",
     hendler: UserController.getUserById,
   },
+
+  {
+    endpoint: "/users",
+    method: "POST",
+    hendler: UserController.getUserById,
+  },
 ];
