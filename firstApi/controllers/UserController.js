@@ -12,5 +12,19 @@ module.exports = {
     response.writeHead(200, { "Content-Type": "application/json" });
     response.end(JSON.stringify(sortedUsers));
   },
+
+  // aqui foi feito a comparação do anterior com o posterior. Onde se a id do anterior for menor que a do posterior ele desce e caso contrário ele sobe
+
+  getUserById(request, response) {
+    const { id } = request.params;
+    const user = users.find((user) => user.id === Number(id));
+
+    if (!user) {
+      response.writeHead(400, { "Content-Type": "application/json" });
+      response.end(JSON.stringify({ error: "User not found" }));
+    } else {
+      response.writeHead(200, { "Content-Type": "application/json" });
+      response.end(JSON.stringify(user));
+    }
+  },
 };
-// aqui foi feito a comparação do anterior com o posterior. Onde se a id do anterior for menor que a do posterior ele desce e caso contrário ele sobe
