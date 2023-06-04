@@ -15,6 +15,6 @@ module.exports = [
   {
     endpoint: "/users",
     method: "POST",
-    hendler: UserController.getUserById,
+    hendler: UserController.createUser,
   },
 ];
