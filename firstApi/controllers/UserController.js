@@ -33,7 +33,8 @@ module.exports = {
 
     request.on('end', () = {
       bady = JSON.parse(body)
+      response.send(200, body)
     })
-    response.send(200, { ok: true });
+    ;
   },
 };
