@@ -31,10 +31,16 @@ module.exports = {
       body += chunk;
     });
 
-    request.on('end', () = {
-      bady = JSON.parse(body)
-      response.send(200, body)
-    })
-    ;
+    request.on("end", () => {
+      body = JSON.parse(body);
+
+      const lastUserId = users[user.length - 1].id;
+      response.send(200, body);
+
+      const newUser = {
+        id: lastUserId + 1,
+        name: body.name,
+      };
+    });
   },
 };
