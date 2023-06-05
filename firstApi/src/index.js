@@ -5,7 +5,7 @@ const bodyParser = require("./helpers/bodyParser");
 const routes = require("./routes");
 
 const server = http.createServer((request, response) => {
-  const parsedUrl = new URL(`http://localhost:3000${request.url}`);
+  const parsedUrl = new URL(`http://localhost:3000${request.url}`); //aqui é feito o parsed da url para termos os query params
 
   console.log(
     `Request method: ${request.method} | Endpoint: ${parsedUrl.pathname}`
@@ -27,7 +27,7 @@ const server = http.createServer((request, response) => {
   );
 
   if (route) {
-    request.query = Object.fromEntries(parsedUrl.searchParams);
+    request.query = Object.fromEntries(parsedUrl.searchParams); //usamos o query params no nosso objeto para que encontramos uma rota seguir a mesma
     request.params = { id };
     response.send = (statusCode, body) => {
       response.writeHead(statusCode, { "Content-Type": "application/json" });
