@@ -1,4 +1,4 @@
-const UserController = require("./src/controllers/UserController");
+const UserController = require("./controllers/UserController");
 module.exports = [
   {
     endpoint: "/users",
@@ -16,5 +16,17 @@ module.exports = [
     endpoint: "/users",
     method: "POST",
     hendler: UserController.createUser,
+  },
+
+  {
+    endpoint: "/users/:id",
+    method: "PUT",
+    hendler: UserController.updateUser,
+  },
+
+  {
+    endpoint: "/users/:id",
+    method: "DELETE",
+    hendler: UserController.deleteUser,
   },
 ];
