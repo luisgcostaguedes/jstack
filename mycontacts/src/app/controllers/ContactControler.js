@@ -1,5 +1,5 @@
 class ContactControler {
-  index() { // listar os registros
+  index(request, response) { // listar os registros
     response.send('Send from Contact Controller');
   }
 
