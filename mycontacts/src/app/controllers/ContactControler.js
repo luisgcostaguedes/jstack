@@ -6,8 +6,8 @@ class ContactControler {
     response.json(contacts);
   }
 
-  show() { // mostrar os registros
-
+  show(request, response) { // mostrar os registros
+    response.json(request.params);
   }
 
   store() {
