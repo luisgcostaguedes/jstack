@@ -6,8 +6,15 @@ class ContactControler {
     response.json(contacts);
   }
 
-  show(request, response) { // mostrar os registros
-    response.json(request.params);
+  async show(request, response) { // mostrar os registros
+    const { id } = request.params;
+    const contact = await ContactsRepository.findById(id);
+
+    if (!contact) {
+      // 404
+      return response.status(404).json({ error: 'User not found' });
+    }
+    response.json(contact);
   }
 
   store() {
@@ -18,8 +25,8 @@ class ContactControler {
     // editar novo registro
   }
 
-  delete() {
-    // deletar novo registro
+  delete(request, response) { // deletar novo registro
+
   }
 }
 
