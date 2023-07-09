@@ -1,6 +1,6 @@
 const ContactsRepository = require('../repositories/ContactsRepository');
 
-class ContactControler {
+class ContactController {
   async index(request, response) { // listar os registros
     const { orderBy } = request.query;
     const contacts = await ContactsRepository.findAll(orderBy);
@@ -70,4 +70,4 @@ class ContactControler {
   }
 }
 
-module.exports = new ContactControler();
+module.exports = new ContactController();
